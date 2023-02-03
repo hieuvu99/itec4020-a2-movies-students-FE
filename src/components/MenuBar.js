@@ -1,10 +1,10 @@
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 function MenuBar() {return(
     <Navbar>
-        <div className="small">
-            <h5>Home</h5>
-            <h5>Account</h5>
-        </div>
+
+            <NavLink to='/' activeClassName='active'>Home</NavLink>
+        
         <input type="text" placeholder="Search.."/>
     </Navbar>)}
 export default MenuBar;

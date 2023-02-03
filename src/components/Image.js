@@ -17,7 +17,7 @@ function Image({src, movieID}){
                             .then(res => res.json())
                             .then(result => setData(`https://image.tmdb.org/t/p/original${result.poster_path}`))
                             .then(res=> error.target.src = data)
-                            .catch((err) => {console.log(err)},[movieID])
+                            .catch((err) => {console.log(err)},[src, movieID])
                        
                        
                      }}/>   

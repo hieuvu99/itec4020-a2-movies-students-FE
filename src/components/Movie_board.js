@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import styled from "styled-components";
 import Image from "./Image"
 import ProgressBar from 'react-animated-progress-bar';
+import { Link } from "react-router-dom";
 function Movie_board(props){
+    const [page,setPage] =  useState(1)
     const [data,setData] =  useState(null)
     useEffect (() => {
-        fetch('/movies')
+        fetch(`/movies?page=${page}`)
         .then(res => res.json())
         .then(result => setData(result))
         .catch((err) => {console.log(err)})
@@ -19,6 +21,7 @@ function Movie_board(props){
         :data.data.map(movie => {
             return (
                 <Movie>
+                    <Link to={`/${movie._id}`} class="hover">
                     <Image src= {`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     movieID = {movie.original_id}
                     /> 
@@ -43,6 +46,7 @@ function Movie_board(props){
                                 />  
                         </div>
                     </div>
+                    </Link>                  
                 </Movie>
             )
         })
@@ -56,6 +60,13 @@ const Movie = styled.div`
     padding-left: 30%;
     margin-bottom: 10%;
     margin-left: 0%;
+    .hover{
+        text-decoration: none;
+        color: black;
+    }
+    .hover:hover{
+        color: darkblue;
+    }
     .margin-left{
         margin-left: 40%;
         position: relative;
@@ -67,7 +78,7 @@ const Movie = styled.div`
         grid-template-rows: 60% 0%;
         max-height: 100px;
     }
-    h3{
+    h3{    
         position: relative;
         text-align: center;
         max-width: 80%;

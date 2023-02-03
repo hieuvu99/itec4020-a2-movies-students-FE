@@ -4,21 +4,27 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import '../components/App';
 import '../App.css'
 import PageNav from './PageNav';
+import Movie from './Movie';
 
 
 function App() {
   return (
     <>
-      <MenuBar/>
-      <div class="main">
+      <div >
         <BrowserRouter>
-        <Routes>
+      <MenuBar/>
+        <Routes >
+          <Route path='/:movieID' element={
+            <div class="main">
+            <Movie/>
+          </div>
+          }></Route>
           <Route path="/" element={
-          <>
-            
+          <div class="main"> 
             <Movie_board/>
             <PageNav/>
-          </>
+          </div>
+
           }>
           </Route>
         </Routes>
