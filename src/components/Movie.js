@@ -20,7 +20,7 @@ function Movie(props){
         .then(res => res.json())
         .then(result => setComment(result))
         .catch((err) => {console.log(err)})
-    },[movieID])
+    },[movieID,comment])
     return(
         <> 
         {!(movie)
@@ -114,8 +114,22 @@ function Movie(props){
         })
     }
     <Comment>
-        <input/>
-        <button onClick={()=>{} }>Post</button>
+        <input className="input"/>
+        <button onClick={()=>{ 
+            let raw = JSON.stringify({
+                "text": document.querySelector(".input").value
+            })
+            console.log(document.querySelector(".input").value)
+             const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: raw
+            };
+            fetch(`/movies/${movieID}/comments`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error)); }
+             }>Post</button>
     </Comment>
     </>
     )
@@ -129,13 +143,15 @@ const Moviecss = styled.div`
 .movieinfo{
     width: 40%;
     height: max-content;
+    font-size: larger;
+    bottom: 250px;
 }
 .inline-block{
     position: relative;
     display: inline-block;
 }
 .image{
-    width: 40%;
+    width: 30%;
     margin: 2% 7% 2% 7%;
 }
 `;

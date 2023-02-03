@@ -21,7 +21,7 @@ function Movie_board(props){
         :data.data.map(movie => {
             return (
                 <Movie>
-                    <Link to={`/${movie._id}`} class="hover">
+                    <Link to={`/movies/${movie._id}`} class="hover">
                     <Image src= {`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     movieID = {movie.original_id}
                     /> 

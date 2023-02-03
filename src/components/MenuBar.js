@@ -2,9 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 function MenuBar() {return(
     <Navbar>
-
             <NavLink to='/' activeClassName='active'>Home</NavLink>
-        
+            <NavLink to='/' activeClassName='active'>Account</NavLink>
         <input type="text" placeholder="Search.."/>
     </Navbar>)}
 export default MenuBar;

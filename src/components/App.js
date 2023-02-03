@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
       <MenuBar/>
         <Routes >
-          <Route path='/:movieID' element={
+          <Route path='/movies/:movieID' element={
             <div class="main">
             <Movie/>
           </div>
