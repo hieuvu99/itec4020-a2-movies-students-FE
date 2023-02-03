@@ -115,6 +115,7 @@ function Movie(props){
     }
     <Comment>
         <input/>
+        <button onClick={ }>Post</button>
     </Comment>
     </>
     )
@@ -144,8 +145,17 @@ margin: 0% 1% 1% 21%;
 box-shadow:  5px 5px 5px 5px darkgray;
 border-radius: 3%;
 input{
-    width: inherit;
-    margin-bottom:10%;
+    width: 98%;
+    height: 50px;
+    margin: 1% 0% 1% 1% 
+    
+
+}
+button{
+    margin-left:94%;
+    width: 5%;
+    padding: 0.25% 1% 0.25% 1%;
+    border-radius: 2mm;
 }
 .avatar{
     height: 1%;
