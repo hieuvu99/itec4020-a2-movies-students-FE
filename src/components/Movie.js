@@ -115,7 +115,7 @@ function Movie(props){
     }
     <Comment>
         <input/>
-        <button onClick={ }>Post</button>
+        <button onClick={()=>{} }>Post</button>
     </Comment>
     </>
     )
