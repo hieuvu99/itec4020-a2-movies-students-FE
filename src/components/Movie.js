@@ -37,12 +37,12 @@ function Movie(props){
                 <h4>Genres:</h4>
                 {
                     movie.genres.map(Element=>{
-                        return <p className="inline-block">{Element}</p>
+                        return <p className="inline-block margin">{Element}</p>
                 })}
                 <h4>Production_companies</h4>
                 {
                     movie.production_companies.map(Element=>{
-                        return<p className="inline-block">{Element}</p>
+                        return<p className="inline-block margin">{Element}</p>
                     })
                 }
                 <h4>Overview:</h4>
@@ -73,7 +73,7 @@ function Movie(props){
             </div>
         </Moviecss>
         }
-    <h1>Comment</h1>
+    <h1 className="Comment">Comment</h1>
     {
         !comment
         ?<h1>Loading</h1>
@@ -86,11 +86,11 @@ function Movie(props){
              
             return (
                 <Comment>
-                    <div>
-                        <TbUserCircle className="inline-block avatar"/>
-                        <p className="inline-block fit" >Anonymous</p>
+                    <div className="margin">
+                        <TbUserCircle className=" avatar" size={50}/>
+                        <p className="text " >Anonymous</p>
                         <p className="time">{
-                        
+                            
                         !(cu.getFullYear()- curr.getFullYear()<1)
                         ? `${cu.getFullYear()- curr.getFullYear()} Year ago`
                         : !((cu.getMonth()- curr.getMonth())<1)
@@ -114,7 +114,6 @@ function Movie(props){
         })
     }
     <Comment>
-        <input className="input"/>
         <button onClick={()=>{ 
             let raw = JSON.stringify({
                 "text": document.querySelector(".input").value
@@ -130,6 +129,7 @@ function Movie(props){
             .then(result => console.log(result))
             .catch(error => console.log('error', error)); }
              }>Post</button>
+        <textarea className="input"/>
     </Comment>
     </>
     )
@@ -142,9 +142,7 @@ const Moviecss = styled.div`
 }
 .movieinfo{
     width: 40%;
-    height: max-content;
-    font-size: larger;
-    bottom: 250px;
+    bottom: 25px;
 }
 .inline-block{
     position: relative;
@@ -154,29 +152,36 @@ const Moviecss = styled.div`
     width: 30%;
     margin: 2% 7% 2% 7%;
 }
+.margin{
+    margin: 1% 1% -3% 4%;
+}
 `;
 const Comment = styled.div`
-width: 50%;
-margin: 0% 1% 1% 21%;
+width: 60%;
+margin: 0% 1% 1% 35%;
 box-shadow:  5px 5px 5px 5px darkgray;
 border-radius: 3%;
-input{
-    width: 98%;
-    height: 50px;
-    margin: 1% 0% 1% 1% 
-    
+display: grid;
+grid-template-columns: 10% 90%;
+.input{
+    width: 97%;
+    margin: 1% 0% 1% 1%;
+    border-radius: 2mm;
+    padding-bottom: 1%;
 
 }
 button{
-    margin-left:94%;
-    width: 5%;
-    padding: 0.25% 1% 0.25% 1%;
+    width: 90%;
     border-radius: 2mm;
 }
 .avatar{
-    height: 1%;
-    margin: 1% 1% -0.3% 1%;
+    position: relative;
+    left: 10%;
 }
+.margin{
+    margin: 1% 1% -3% 4%;
+}
+
 .inline-block{
     position: relative;
     display: inline-block;
@@ -191,13 +196,17 @@ p{
     margin-top: 0%;
 }
 .content{
-    text-align: center;
-    padding: 0% 0% 4% 20%;
+    padding: 3% 0% 0% 1%;
     margin-top: 0%;
     font-weight:lighter ;
     font-size: smaller;
 }
 .fit{
     margin-bottom:0%;
+}
+.text{
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 `;

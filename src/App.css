@@ -10,6 +10,9 @@ margin: 3% 7% 5% 7%;
 padding-top: 1%;
 border-radius: 0.5%;
 }
+.Comment{
+	padding-left: 7%;
+}
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
