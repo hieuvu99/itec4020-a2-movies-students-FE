@@ -19,14 +19,14 @@ function App() {
             <Movie/>
           </div>
           }></Route>
-          <Route path="/" element={
+          <Route path="/page/:page" element={
           <div class="main"> 
             <Movie_board/>
             <PageNav/>
           </div>
-
           }>
           </Route>
+          
         </Routes>
       </BrowserRouter>
       </div>

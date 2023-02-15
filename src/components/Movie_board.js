@@ -2,17 +2,22 @@ import { useEffect, useState } from "react"
 import styled from "styled-components";
 import Image from "./Image"
 import ProgressBar from 'react-animated-progress-bar';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 function Movie_board(props){
     const [page,setPage] =  useState(1)
+    var p = useParams();
+      p = p.page
+      setPage(p)
+
     const [data,setData] =  useState(null)
     useEffect (() => {
-        fetch(`/movies?page=${page}`)
+        fetch(`/movies?page=1`)
         .then(res => res.json())
         .then(result => setData(result))
         .catch((err) => {console.log(err)})
-    },[data])
+    },[page,data])
     
+  
     
     return(<Movie_boardcss>
     {
@@ -20,7 +25,7 @@ function Movie_board(props){
         ?<h1>Loading</h1>
         :data.data.map(movie => {
             return (
-                <Movie>
+                <Moviecss>
                     <Link to={`/movies/${movie._id}`} class="hover">
                     <Image src= {`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                     movieID = {movie.original_id}
@@ -47,7 +52,7 @@ function Movie_board(props){
                         </div>
                     </div>
                     </Link>                  
-                </Movie>
+                </Moviecss>
             )
         })
     }
@@ -55,7 +60,7 @@ function Movie_board(props){
 
 }
 export default Movie_board
-const Movie = styled.div`
+const Moviecss = styled.div`
     width: 90%;
     padding-left: 30%;
     margin-bottom: 10%;
