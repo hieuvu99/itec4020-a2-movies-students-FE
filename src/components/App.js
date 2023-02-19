@@ -3,7 +3,6 @@ import MenuBar from './MenuBar'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import '../components/App';
 import '../App.css'
-import PageNav from './PageNav';
 import Movie from './Movie';
 
 

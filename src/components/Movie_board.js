@@ -1,21 +1,23 @@
+import PageNav from './PageNav';
 import { useEffect, useState } from "react"
+import React from 'react';   
 import styled from "styled-components";
 import Image from "./Image"
 import ProgressBar from 'react-animated-progress-bar';
 import { Link, useParams } from "react-router-dom";
 function Movie_board(props){
-    const [page,setPage] =  useState(1)
-    var p = useParams();
-      p = p.page
-      setPage(p)
-
+    var {page} = useParams()
+    const [pageNo,setPage] =  useState(null)
+    
     const [data,setData] =  useState(null)
     useEffect (() => {
-        fetch(`/movies?page=1`)
+        
+        setPage(page)
+        fetch(`/movies?page=${pageNo}`)
         .then(res => res.json())
         .then(result => setData(result))
         .catch((err) => {console.log(err)})
-    },[page,data])
+    },[pageNo,data])
     
   
     
@@ -56,10 +58,11 @@ function Movie_board(props){
             )
         })
     }
+    <PageNav currentPage = {page}/>
     </Movie_boardcss>)
 
 }
-export default Movie_board
+export default React.memo(Movie_board)
 const Moviecss = styled.div`
     width: 90%;
     padding-left: 30%;
