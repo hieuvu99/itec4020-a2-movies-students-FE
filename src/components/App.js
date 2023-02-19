@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import '../components/App';
 import '../App.css'
 import Movie from './Movie';
+import PageNav from './PageNav';
 
 
 function App() {

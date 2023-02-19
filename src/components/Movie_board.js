@@ -58,7 +58,6 @@ function Movie_board(props){
             )
         })
     }
-    <PageNav currentPage = {page}/>
     </Movie_boardcss>)
 
 }
