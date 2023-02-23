@@ -5,6 +5,9 @@ import '../components/App';
 import '../App.css'
 import Movie from './Movie';
 import PageNav from './PageNav';
+import Slider from './Slider';
+import HomePage from './HomePage';
+import SearchPage from './SearchPage';
 
 
 function App() {
@@ -13,7 +16,11 @@ function App() {
       <div >
         <BrowserRouter>
       <MenuBar/>
-        <Routes >
+      <Routes >
+          <Route path='/' element={
+            <HomePage/>
+          }>
+            </Route>  
           <Route path='/movies/:movieID' element={
             <div class="main">
             <Movie/>
@@ -26,7 +33,12 @@ function App() {
           </div>
           }>
           </Route>
-          
+          <Route path='/search/:text' element={
+            <div class="main"> 
+            <SearchPage/>
+            </div>
+          }>
+            </Route> 
         </Routes>
       </BrowserRouter>
       </div>

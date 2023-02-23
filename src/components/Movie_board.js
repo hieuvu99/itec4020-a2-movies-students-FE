@@ -17,7 +17,7 @@ function Movie_board(props){
         .then(res => res.json())
         .then(result => setData(result))
         .catch((err) => {console.log(err)})
-    },[pageNo,data])
+    },[page,pageNo,data])
     
   
     
@@ -65,6 +65,7 @@ export default React.memo(Movie_board)
 const Moviecss = styled.div`
     width: 90%;
     padding-left: 30%;
+    padding-top: 10%;
     margin-bottom: 10%;
     margin-left: 0%;
     .hover{
