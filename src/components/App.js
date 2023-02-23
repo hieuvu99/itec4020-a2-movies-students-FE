@@ -36,6 +36,7 @@ function App() {
           <Route path='/search/:text' element={
             <div class="main"> 
             <SearchPage/>
+            <PageNav/>
             </div>
           }>
             </Route> 

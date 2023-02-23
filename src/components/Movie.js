@@ -96,7 +96,7 @@ function Movie(props){
                         : !((cu.getMonth()- curr.getMonth())<1)
                         ?`${cu.getMonth()- curr.getMonth()} Months ago`
                         : !((cu.getDate()- curr.getDate())<1)
-                        ?`${cu.getDay()- curr.getDay()} Days ago`
+                        ?`${cu.getDate()- curr.getDate()} Days ago`
                         :   !((cu.getHours()- curr.getHours())<1)
                                     ?`${cu.getHours()- curr.getHours()} Hours ago`
                                     : !((cu.getMinutes()- curr.getMinutes())<1)
