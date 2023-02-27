@@ -29,7 +29,7 @@ function Slider({genres}){
     const scrollAmount = 100;
    
     useEffect (() => {
-      fetch("/search/movies/by-genres", requestOptions)
+      fetch("https://back-end-api.herokuapp.com/search/movies/by-genres", requestOptions)
       .then(response => response.json())
       .then(result => setData(result.data))
       .catch(error => console.log('error', error));

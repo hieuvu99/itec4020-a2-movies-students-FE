@@ -6,7 +6,7 @@ function HomePage(){
     const [data,setData] =  useState(null)
    
     useEffect (() => {
-        fetch(`/movies/genres/all`)
+        fetch(`https://back-end-api.herokuapp.com/movies/genres/all`)
         .then(res => res.json())
         .then(result => setData(result.data))
         .catch((err) => {console.log(err)})

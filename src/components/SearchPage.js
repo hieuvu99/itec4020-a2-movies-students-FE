@@ -12,7 +12,7 @@ function SearchPage(){
     const [data,setData] =  useState(null)
 
     useEffect (() => {
-        fetch(`/search?text=${text}&pageNumber=1`)
+        fetch(`https://back-end-api.herokuapp.com/search?text=${text}&pageNumber=1`)
         .then(res => res.json())
         .then(result => setData(result.data))
         .catch((err) => {console.log(err)})

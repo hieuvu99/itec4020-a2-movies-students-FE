@@ -6,7 +6,7 @@ function PageNav({currentPage}) {
     const [data,setData] =  useState(null)
 
     useEffect (() => {
-        fetch(`/movies`)
+        fetch(`https://back-end-api.herokuapp.com/movies`)
         .then(res => res.json())
         .then(result => setData(result.pagination.pageCount))
         .catch((err) => {console.log(err)})

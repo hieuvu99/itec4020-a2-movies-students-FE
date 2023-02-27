@@ -13,7 +13,7 @@ function Movie_board(props){
     useEffect (() => {
         
         setPage(page)
-        fetch(`/movies?page=${pageNo}`)
+        fetch(`https://back-end-api.herokuapp.com/movies?page=${pageNo}`)
         .then(res => res.json())
         .then(result => setData(result))
         .catch((err) => {console.log(err)})

@@ -8,7 +8,7 @@ function SearchBar() {
     const navigate = useNavigate()
     //fetching movies' data to return appropriate results as the users type in the search bar
     useEffect (() => {
-    fetch(`/search?text=${input}&pageNumber=1`)
+    fetch(`https://back-end-api.herokuapp.com//search?text=${input}&pageNumber=1`)
         .then(res => res.json())    
         .then((data) => {setSearch(data.data);
         console.log(search)})    
